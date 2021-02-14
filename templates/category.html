@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ category_name }} | Xia01in{% endblock %}
+
+{% block content%}
+<div class="hd">
+	<div class="titlex">
+        <p><span class="ba">★</span>
+            {{ category_name }}
+        </p>
+    </div>
+
+{% for cateblog in cate_blogs %}
+	<a class="flink" href="{% url 'blog_id' cateblog.id %}">
+		<div class="list">
+			<div class="postname">
+				{{ cateblog.title }}
+			</div>
+		</div>
+	</a>
+{% endfor %}
+</div>
+{% endblock %}

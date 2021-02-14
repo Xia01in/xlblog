@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load custom_tag %}
+{% block title %}友链 | Xia01in{% endblock %}
+
+{% block content%}
+<div class="hd">
+	<div class="titlex">
+        <p><span class="ba">★</span>
+            友链
+        </p>
+    </div>
+</div>
+<div class="hd posts">
+	<div class="post-content">
+		{{ link_content|custom_markdown|safe }}
+	</div>
+</div>
+{% endblock %}

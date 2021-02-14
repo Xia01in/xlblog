@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load custom_tag %}
+{% block title %}关于 | Xia01in{% endblock %}
+
+{% block content%}
+<div class="hd">
+	<div class="titlex">
+        <p><span class="ba">★</span>
+            关于
+        </p>
+    </div>
+</div>
+<div class="hd posts">
+	<div class="post-content">
+		{{ about_content|custom_markdown|safe }}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}分类 | Xia01in{% endblock %}
+
+{% block content%}
+<div class="hd">
+	<div class="titlex">
+        <p><span class="ba">★</span>
+            分类目录
+        </p>
+    </div>
+
+{% for category in all_category %}
+	<a class="flink" href="{% url 'category_name' category.name %}">
+		<div class="list">
+			<div class="postname">
+				{{ category.name }}
+			</div>
+		</div>
+	</a>
+{% endfor %}
+</div>
+{% endblock %}

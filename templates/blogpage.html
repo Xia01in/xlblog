@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load custom_tag %}
+{% block title %}{{ blog.title }} | Xia01in{% endblock %}
+
+{% block content%}
+<body id="bodyx">
+    <div class="hd posts">
+    <div class="post-title">
+        <p>
+            {{ blog.title }}
+        </p>
+	</div>
+	<div class="post-index">
+		发布时间：{{ blog.create_time|date:'Y-m-d' }} | 分类：<a class="post-index" href="../category/{{ blog.category }}">{{ blog.category }}</a> | 点击次数：{{ blog.click_nums }}
+    </div>
+	<hr>
+    <div class="post-content">
+	{{ blog_content|custom_markdown|safe }}
+    </div>
+	</div>
+</div>
+<div class="next">
+{% if has_prev %}
+    <a class="next" href="{% url 'blog_id' blog_prev.id %}" rel="prev" title="{{ blog_prev.title }}">
+        <i class="fa fa-chevron-left"></i> {{ blog_prev.title }}
+    </a>
+{% endif %}
+{% if has_next %}
+     <a class="next" href="{% url 'blog_id' blog_next.id %}" rel="next" title="{{ blog_next.title }}">
+        {{ blog_next.title }} <i class="fa fa-chevron-right"></i>
+     </a>
+{% endif %}
+</div>
+{% endblock %}
